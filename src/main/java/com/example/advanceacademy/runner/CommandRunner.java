@@ -9,7 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
-import java.util.Set;
 import java.util.UUID;
 
 @Component
@@ -26,6 +25,7 @@ public class CommandRunner implements CommandLineRunner {
 
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         User user = User.builder()
                 .firstName("Ivan")
@@ -51,7 +51,8 @@ public class CommandRunner implements CommandLineRunner {
                 .view(ViewType.GARDEN)
                 .build();
 
-        Hotel hotel1 = hotelRepository.findById(3L).orElse(new Hotel());
+        Hotel hotel1 = hotelRepository.findById(2L).get();
+
         System.out.println(hotel1.getRooms());
         Room savedRoom = roomRepository.save(room);
         System.out.println(savedRoom.toString());

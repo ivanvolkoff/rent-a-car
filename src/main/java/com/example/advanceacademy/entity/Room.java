@@ -1,17 +1,16 @@
 package com.example.advanceacademy.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Set;
 
-@AllArgsConstructor
+@Data
+@Setter
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity(name = "rooms")
 @Builder
 public class Room {
@@ -30,24 +29,11 @@ public class Room {
     private RoomType room_type;
 
     @ManyToOne
-    @JsonIgnore
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonBackReference
     private Hotel hotel;
 
-    @OneToMany(mappedBy = "room",fetch = FetchType.EAGER)
-    @JsonBackReference
+    @OneToMany(mappedBy = "room")
     private Set<Reservation> reservations;
-
-
-    @Override
-    public String toString() {
-        return "Room{" +
-                "id=" + id +
-                ", view=" + view +
-                ", floor='" + floor + '\'' +
-                ", beds=" + beds +
-                ", room_type=" + room_type +
-                ", hotel=" + hotel +
-                ", reservations=" + reservations +
-                '}';
-    }
 }

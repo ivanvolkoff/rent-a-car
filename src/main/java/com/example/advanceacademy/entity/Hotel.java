@@ -1,14 +1,17 @@
 package com.example.advanceacademy.entity;
 
 
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -24,22 +27,13 @@ public class Hotel {
 
     private String address;
 
-    @OneToMany(mappedBy = "hotel",fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    private Set<Room> rooms;
-
-    @OneToMany(mappedBy = "hotel",fetch = FetchType.EAGER)
     @JsonManagedReference
+    @EqualsAndHashCode.Exclude
+    public Set<Room> rooms = new HashSet<>();
+
+    @OneToMany(mappedBy = "hotel")
     private Set<Reservation> reservations;
 
-    @Override
-    public String toString() {
-        return "Hotel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", reservations=" + reservations +
-                '}';
-    }
 }
