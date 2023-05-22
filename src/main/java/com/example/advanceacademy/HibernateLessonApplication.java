@@ -10,10 +10,6 @@ public class HibernateLessonApplication {
 
 		SpringApplication.run(HibernateLessonApplication.class, args);
 
-
-
-
-
 	}
 
 }

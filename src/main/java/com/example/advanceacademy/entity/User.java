@@ -1,9 +1,13 @@
 package com.example.advanceacademy.entity;
 
-import javax.persistence.*;
-import java.util.List;
+import lombok.*;
 
-@Entity
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+@Data
+@Builder
+@Entity(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +24,6 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-    private List<Reservation> reservations;
+    private List<Reservation> reservations = new ArrayList<>();
+
 }
