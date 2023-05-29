@@ -2,6 +2,7 @@ package com.example.advanceacademy.runner;
 
 import com.example.advanceacademy.entity.*;
 import com.example.advanceacademy.repository.HotelRepository;
+import com.example.advanceacademy.repository.ReservationRepository;
 import com.example.advanceacademy.repository.RoomRepository;
 import com.example.advanceacademy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.time.Instant;
+import java.util.Date;
 import java.util.UUID;
 
 @Component
@@ -23,6 +26,8 @@ public class CommandRunner implements CommandLineRunner {
     @Autowired
     RoomRepository roomRepository;
 
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @Override
     @Transactional
@@ -52,10 +57,26 @@ public class CommandRunner implements CommandLineRunner {
                 .build();
 
         Hotel hotel1 = hotelRepository.findById(2L).get();
-
+        System.out.println("HERE");
         System.out.println(hotel1.getRooms());
         Room savedRoom = roomRepository.save(room);
         System.out.println(savedRoom.toString());
+
+
+        Reservation reservation = Reservation.builder()
+                .dateIn(Date.from(Instant.now()))
+                .hotel(hotel1)
+                .price(450.0)
+                .stays(5)
+                .user(user)
+                .room(roomRepository.findById(2L).get())
+                .build();
+
+         Reservation savedReservation = reservationRepository.save(reservation);
+         Reservation myReservation = reservationRepository.findById(1L)
+                 .orElse(new Reservation());
+        System.out.println(myReservation);
+
 
 
     }

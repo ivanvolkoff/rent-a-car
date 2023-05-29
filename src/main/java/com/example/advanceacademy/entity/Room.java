@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
 @Setter
 @Getter
 @NoArgsConstructor
@@ -29,11 +28,20 @@ public class Room {
     private RoomType room_type;
 
     @ManyToOne
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     @JsonBackReference
     private Hotel hotel;
 
     @OneToMany(mappedBy = "room")
     private Set<Reservation> reservations;
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", view=" + view +
+                ", floor='" + floor + '\'' +
+                ", beds=" + beds +
+                ", room_type=" + room_type +
+                '}';
+    }
 }

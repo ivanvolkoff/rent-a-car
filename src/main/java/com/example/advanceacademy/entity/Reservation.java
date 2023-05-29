@@ -1,11 +1,13 @@
 package com.example.advanceacademy.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "reservations")
@@ -26,7 +28,8 @@ public class Reservation {
 
     private Double price;
 
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
     private User user;
 
 

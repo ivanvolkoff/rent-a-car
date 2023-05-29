@@ -8,10 +8,8 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -30,10 +28,19 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JsonManagedReference
-    @EqualsAndHashCode.Exclude
-    public Set<Room> rooms = new HashSet<>();
+    public Set<Room> rooms;
 
     @OneToMany(mappedBy = "hotel")
     private Set<Reservation> reservations;
 
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", rooms=" + rooms +
+                ", reservations=" + reservations +
+                '}';
+    }
 }

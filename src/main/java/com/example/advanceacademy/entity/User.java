@@ -1,10 +1,14 @@
 package com.example.advanceacademy.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Builder
 @Entity(name = "users")
@@ -24,6 +28,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
-    private List<Reservation> reservations = new ArrayList<>();
+    @JsonManagedReference
+    private List<Reservation> reservations;
 
 }
