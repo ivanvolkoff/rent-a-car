@@ -35,5 +35,8 @@ public class HotelController {
                 .body(hotelService.findByCountryAndCity(country, city));
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<SearchHotelResponse> findById(@PathVariable String id){
+        return ResponseEntity.status(HttpStatus.FOUND).body(hotelService.findById(id));
+    }
 }

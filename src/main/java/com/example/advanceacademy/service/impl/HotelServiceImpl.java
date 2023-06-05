@@ -40,4 +40,10 @@ public class HotelServiceImpl implements HotelService {
          return hotels.stream().map(hotel -> hotelConverter.toSearchResponse(hotel))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public SearchHotelResponse findById(String id) {
+        Hotel hotel =  hotelRepository.findById(Long.parseLong(id)).get();
+        return hotelConverter.toSearchResponse(hotel);
+    }
 }

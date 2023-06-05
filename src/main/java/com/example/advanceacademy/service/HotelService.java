@@ -9,4 +9,5 @@ import java.util.List;
 public interface HotelService {
      HotelResponse saveHotel(HotelRequest request);
      List<SearchHotelResponse> findByCountryAndCity(String country, String city);
+     SearchHotelResponse findById(String id);
 }
