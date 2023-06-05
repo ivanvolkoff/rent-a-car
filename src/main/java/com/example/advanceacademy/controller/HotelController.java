@@ -32,7 +32,7 @@ public class HotelController {
             @RequestParam String country,
             @RequestParam String city) {
         return ResponseEntity.status(HttpStatus.FOUND)
-                .body(hotelService.findByAddress_Country(country, city));
+                .body(hotelService.findByCountryAndCity(country, city));
     }
 
 
