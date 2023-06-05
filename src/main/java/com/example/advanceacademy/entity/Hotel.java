@@ -23,7 +23,10 @@ public class Hotel {
 
     private String name;
 
-    private String address;
+    @OneToOne
+    @Cascade(CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @OneToMany(mappedBy = "hotel", fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)

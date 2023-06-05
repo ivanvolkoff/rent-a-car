@@ -1,9 +1,16 @@
 package com.example.advanceacademy.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
-@Table(name="user_address")
+@Getter
+@Setter
+@Table(name="addresses")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
