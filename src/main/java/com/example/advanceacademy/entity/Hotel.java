@@ -36,6 +36,8 @@ public class Hotel {
     @OneToMany(mappedBy = "hotel")
     private Set<Reservation> reservations;
 
+    private String phoneNumber;
+
     @Override
     public String toString() {
         return "Hotel{" +

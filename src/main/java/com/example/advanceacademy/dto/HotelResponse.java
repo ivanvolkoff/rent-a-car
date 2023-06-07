@@ -1,11 +1,6 @@
 package com.example.advanceacademy.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.validation.constraints.NotBlank;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,4 +9,5 @@ import javax.validation.constraints.NotBlank;
 public class HotelResponse {
     private String hotelName;
     private Long id;
+    private String phoneNumber;
 }

@@ -13,8 +13,8 @@ public class SearchHotelResponse extends HotelResponse{
         this.address = address;
     }
 
-    public SearchHotelResponse(String hotelName, Long id, Address address) {
-        super(hotelName, id);
+    public SearchHotelResponse(String hotelName, Long id,String phoneNumber, Address address) {
+        super(hotelName,id,phoneNumber);
         this.address = address;
     }
 }

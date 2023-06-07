@@ -1,6 +1,8 @@
 package com.example.advanceacademy.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 
@@ -21,4 +23,9 @@ public class Address {
     private String streetAddress;
     private String description;
     private Boolean isDefault;
+
+    @OneToOne()
+    @Cascade(CascadeType.ALL)
+    @JoinColumn(name = "hotel_id")
+    private Hotel hotel;
 }

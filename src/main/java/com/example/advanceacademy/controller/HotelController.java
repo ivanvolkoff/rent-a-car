@@ -3,6 +3,7 @@ package com.example.advanceacademy.controller;
 import com.example.advanceacademy.dto.HotelRequest;
 import com.example.advanceacademy.dto.HotelResponse;
 import com.example.advanceacademy.dto.SearchHotelResponse;
+import com.example.advanceacademy.dto.UpdateHotelRequest;
 import com.example.advanceacademy.service.HotelService;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,13 @@ public class HotelController {
     @GetMapping("/{id}")
     public ResponseEntity<SearchHotelResponse> findById(@PathVariable String id){
         return ResponseEntity.status(HttpStatus.FOUND).body(hotelService.findById(id));
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<SearchHotelResponse> updateAddress(@PathVariable Long id,
+                                                             @RequestBody UpdateHotelRequest request){
+        SearchHotelResponse hotelResponse = hotelService.updateHotelDetails(id,request);
+        return ResponseEntity.status(HttpStatus.OK).body(hotelResponse);
     }
 }

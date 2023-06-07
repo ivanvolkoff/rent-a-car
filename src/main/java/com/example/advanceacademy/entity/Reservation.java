@@ -20,6 +20,8 @@ public class Reservation {
 
     private Date dateIn;
 
+    private Date dateOut;
+
     @ManyToOne
     private Room room;
 

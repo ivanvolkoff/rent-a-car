@@ -22,6 +22,7 @@ public class HotelConverter {
 
         Hotel hotel = Hotel.builder()
                 .name(request.getName())
+                .phoneNumber(request.getPhoneNumber())
                 .address(hotelAddress)
                 .build();
 
@@ -30,14 +31,14 @@ public class HotelConverter {
 
     public HotelResponse toResponse(Hotel hotel) {
         HotelResponse hotelResponse = new HotelResponse(hotel.getName(),
-                hotel.getId());
+                hotel.getId(),hotel.getPhoneNumber());
 
         return hotelResponse;
     }
 
     public SearchHotelResponse toSearchResponse(Hotel hotel) {
         SearchHotelResponse hotelResponse = new SearchHotelResponse(hotel.getName(),
-                hotel.getId(),hotel.getAddress());
+                hotel.getId(), hotel.getPhoneNumber(),hotel.getAddress());
 
         return hotelResponse;
     }

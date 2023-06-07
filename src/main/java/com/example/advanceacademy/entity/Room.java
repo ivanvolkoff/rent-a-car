@@ -2,6 +2,8 @@ package com.example.advanceacademy.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -20,8 +22,6 @@ public class Room {
     @Enumerated(EnumType.STRING)
     private ViewType view;
 
-    private String floor;
-
     private int beds;
 
     @Enumerated(EnumType.STRING)
@@ -30,16 +30,16 @@ public class Room {
     @ManyToOne
     @JsonBackReference
     private Hotel hotel;
+    @Column( columnDefinition = "integer default 1")
+    private int quantity;
 
-    @OneToMany(mappedBy = "room")
-    private Set<Reservation> reservations;
+    private double price;
 
     @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +
                 ", view=" + view +
-                ", floor='" + floor + '\'' +
                 ", beds=" + beds +
                 ", room_type=" + room_type +
                 '}';
