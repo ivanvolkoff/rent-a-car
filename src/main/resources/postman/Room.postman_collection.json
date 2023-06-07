@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "683c8d3e-a7ab-4ba5-8320-cad359387ec9",
+		"name": "Room",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "save standart room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelId\": 1,\r\n    \"view\": \"SEA\",\r\n    \"price\": 75.0,\r\n    \"roomType\": \"STANDARD\",\r\n    \"bedQuantity\": 4,\r\n    \"quantity\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/room",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save Premium room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelId\": 1,\r\n    \"view\": \"SEA\",\r\n    \"price\": 75.0,\r\n    \"roomType\": \"STANDARD\",\r\n    \"bedQuantity\": 4,\r\n    \"quantity\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/room",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save Delux room Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelId\": 1,\r\n    \"view\": \"SEA\",\r\n    \"price\": 75.0,\r\n    \"roomType\": \"STANDARD\",\r\n    \"bedQuantity\": 4,\r\n    \"quantity\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/room",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"room"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

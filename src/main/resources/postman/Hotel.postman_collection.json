@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "9b7d17d5-ea5a-45e7-b278-c6920f1d24a8",
+		"name": "Hotel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "ajsd',ca,fk'f6asxfacsavrc3awefxaw3e3vawawefge",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Grand Hotel\",\r\n    \"country\":\"Hungary\",\r\n    \"city\":\"Varna\",\r\n    \"zip\":\"9000\",\r\n    \"phoneNumber\":\"052455784\",\r\n    \"streetAddress\":\"Tsar Osv 14\",\r\n    \"description\":\"Center, Sevastopol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "ajsd',ca,fk'f6asxfacsavrc3awefxaw3e3vawawefge",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Cherno more\",\r\n    \"country\":\"Bulgaria\",\r\n    \"city\":\"Varna\",\r\n    \"zip\":\"9000\",\r\n    \"phoneNumber\":\"052455784\",\r\n    \"streetAddress\":\"Slivnitsa 14\",\r\n    \"description\":\"Center, Sevastopol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/hotel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "ajsd',ca,fk'f6asxfacsavrc3awefxaw3e3vawawefge",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Cherno more\",\r\n    \"country\":\"Bulgaria\",\r\n    \"city\":\"Varna\",\r\n    \"zip\":\"9000\",\r\n    \"phoneNumber\":\"052455784\",\r\n    \"streetAddress\":\"Slivnitsa 14\",\r\n    \"description\":\"Center, Sevastopol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/hotel",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/hotel/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Black Sea star\",\r\n    \"phoneNumber\":\"0877080091\",\r\n    \"zip\":\"9001\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/hotel/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/hotel/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/hotel/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/v1/hotel/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/hotel/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"hotel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
