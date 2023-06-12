@@ -4,10 +4,13 @@ import com.example.advanceacademy.convertor.UserConverter;
 import com.example.advanceacademy.dto.UserRegisterRequest;
 import com.example.advanceacademy.dto.UserResponse;
 import com.example.advanceacademy.entity.User;
+import com.example.advanceacademy.exception.UserNotFoundException;
 import com.example.advanceacademy.repository.UserRepository;
 import com.example.advanceacademy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -32,7 +35,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse getUser(Long id) {
-        User user = userRepository.findById(id).get();
+        User user = userRepository.findById(id).orElseThrow(
+                ()-> new UserNotFoundException("User not found"));
+
         return userConverter.toResponse(user);
     }
 

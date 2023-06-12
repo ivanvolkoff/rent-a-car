@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface RoomService {
      Room addRoom(RoomRequest room);
+     Room findById(Long id);
+     void deleteRoomById(Long roomId);
 }
