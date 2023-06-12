@@ -1,6 +1,8 @@
 package com.example.advanceacademy.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +27,7 @@ public class User {
     private String lastName;
 
     @Column(unique = true)
+    @Schema(description = "The user's email address.", example = "lillyivanova@gmail.com")
     private String email;
 
     private String password;
@@ -32,7 +35,7 @@ public class User {
     private Date registerDate;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    @JsonManagedReference
+    @JsonBackReference
     private List<Reservation> reservations;
 
     private String imageUrl;

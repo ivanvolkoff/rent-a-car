@@ -1,6 +1,7 @@
 package com.example.advanceacademy.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,15 +24,18 @@ public class Reservation {
     private Date dateOut;
 
     @ManyToOne
+    @JsonManagedReference
     private Room room;
 
     @ManyToOne
+    @JsonManagedReference
     private Hotel hotel;
 
     private Double price;
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
+    @JsonManagedReference
     private User user;
 
 

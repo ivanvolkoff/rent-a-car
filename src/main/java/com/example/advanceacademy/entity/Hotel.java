@@ -2,6 +2,7 @@ package com.example.advanceacademy.entity;
 
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
@@ -34,6 +35,7 @@ public class Hotel {
     public Set<Room> rooms;
 
     @OneToMany(mappedBy = "hotel")
+    @JsonBackReference
     private Set<Reservation> reservations;
 
     private String phoneNumber;

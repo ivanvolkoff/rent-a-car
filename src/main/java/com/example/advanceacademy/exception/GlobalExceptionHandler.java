@@ -1,6 +1,5 @@
 package com.example.advanceacademy.exception;
 
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -17,8 +16,8 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<ErrorMessage> handleUserNotFoundException(UserNotFoundException ex) {
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorMessage> handleUserNotFoundException(NotFoundException ex) {
         ErrorMessage errorMessage = new ErrorMessage();
         errorMessage.setMessage(ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
