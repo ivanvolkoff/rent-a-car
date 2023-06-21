@@ -1,10 +1,12 @@
 package com.example.advanceacademy.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.Date;
 @Getter
 @Setter
@@ -15,14 +17,15 @@ import java.util.Date;
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private int stays;
 
-    private Date dateIn;
+    private Instant dateIn;
 
-    private Date dateOut;
+    private Instant dateOut;
 
+    @JsonIgnore
     @ManyToOne
     @JsonManagedReference
     private Room room;

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.Instant;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -13,7 +14,7 @@ import java.util.Date;
 @Setter
 public class ReservationRequest {
     private int stays;
-    private Date dateIn;
+    private Instant dateIn;
     private Long userId;
     private Long hotelId;
     private Long roomId;

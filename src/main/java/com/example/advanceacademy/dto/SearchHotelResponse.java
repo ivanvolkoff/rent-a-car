@@ -14,7 +14,6 @@ public class SearchHotelResponse extends HotelResponse{
     }
 
     public SearchHotelResponse(String hotelName, Long id,String phoneNumber, Address address) {
-        super(hotelName,id,phoneNumber);
-        this.address = address;
+        super(hotelName,id,phoneNumber,address);
     }
 }

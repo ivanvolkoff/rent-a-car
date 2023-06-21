@@ -31,7 +31,7 @@ public class HotelConverter {
 
     public HotelResponse toResponse(Hotel hotel) {
         HotelResponse hotelResponse = new HotelResponse(hotel.getName(),
-                hotel.getId(),hotel.getPhoneNumber());
+                hotel.getId(),hotel.getPhoneNumber(),hotel.getAddress());
 
         return hotelResponse;
     }
