@@ -15,13 +15,13 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorMessage> handleUserNotFoundException(NotFoundException ex) {
-        ErrorMessage errorMessage = new ErrorMessage();
-        errorMessage.setMessage(ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
-    }
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    @ExceptionHandler(NotFoundException.class)
+//    public ResponseEntity<ErrorMessage> handleUserNotFoundException(NotFoundException ex) {
+//        ErrorMessage errorMessage = new ErrorMessage();
+//        errorMessage.setMessage(ex.getMessage());
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+//    }
 
     @ResponseStatus(HttpStatus.CONFLICT)
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)

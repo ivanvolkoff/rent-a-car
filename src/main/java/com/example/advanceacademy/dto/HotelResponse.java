@@ -4,7 +4,6 @@ import com.example.advanceacademy.entity.Address;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 public class HotelResponse {
@@ -12,4 +11,7 @@ public class HotelResponse {
     private Long id;
     private String phoneNumber;
     private Address address;
+
+    public HotelResponse() {
+    }
 }

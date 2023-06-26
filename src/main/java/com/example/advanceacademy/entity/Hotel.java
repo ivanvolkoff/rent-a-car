@@ -40,6 +40,12 @@ public class Hotel {
 
     private String phoneNumber;
 
+    public Hotel(Long id, String name,String country) {
+        this.id = id;
+        this.name = name;
+    }
+
+
     @Override
     public String toString() {
         return "Hotel{" +

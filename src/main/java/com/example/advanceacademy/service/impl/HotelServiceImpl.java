@@ -7,10 +7,10 @@ import com.example.advanceacademy.dto.SearchHotelResponse;
 import com.example.advanceacademy.dto.UpdateHotelRequest;
 import com.example.advanceacademy.entity.Address;
 import com.example.advanceacademy.entity.Hotel;
+import com.example.advanceacademy.exception.NotFoundException;
 import com.example.advanceacademy.repository.HotelRepository;
 import com.example.advanceacademy.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +30,9 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public HotelResponse saveHotel(HotelRequest request) {
+        if(request.getCountry().equals("Bangladesh")){
+            return null;
+        }
         Hotel hotel = hotelConverter.toHotel(request);
         Hotel savedHotel = hotelRepository.save(hotel);
 
@@ -45,14 +48,20 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public SearchHotelResponse findById(String id) {
-        Hotel hotel = hotelRepository.findById(Long.parseLong(id)).get();
+    public SearchHotelResponse findById(Long id) {
+        Hotel hotel = hotelRepository.findById(id).orElseThrow(()->new NotFoundException(String.format("Hotel with %s not found",id)));
         return hotelConverter.toSearchResponse(hotel);
     }
 
     @Override
     public SearchHotelResponse updateHotelDetails(Long id, UpdateHotelRequest request) {
-        Hotel hotel = hotelRepository.findById(id).orElseThrow();
+        Hotel hotel;
+
+        try{
+            hotel = hotelRepository.findById(id).get();
+        }catch(RuntimeException exception){
+            throw new NotFoundException(String.format("Hotel with %s not found",id));
+        }
 
         if (request.getName() != null &&!request.getName().isBlank()) {
             hotel.setName(request.getName());
@@ -73,7 +82,8 @@ public class HotelServiceImpl implements HotelService {
             address.setStreetAddress(request.getStreetAddress());
         }
 
-        return hotelConverter.toSearchResponse(hotelRepository.save(hotel));
+        return hotelConverter.toSearchResponse(
+                hotelRepository.save(hotel));
 
     }
 }

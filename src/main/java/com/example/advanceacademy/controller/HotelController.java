@@ -37,7 +37,7 @@ public class HotelController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SearchHotelResponse> findById(@PathVariable String id){
+    public ResponseEntity<SearchHotelResponse> findById(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.FOUND).body(hotelService.findById(id));
     }
 
