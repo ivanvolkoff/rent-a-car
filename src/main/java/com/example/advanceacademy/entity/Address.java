@@ -1,10 +1,10 @@
 package com.example.advanceacademy.entity;
 
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import javax.persistence.*;
 
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,12 +1,12 @@
 package com.example.advanceacademy.dto;
 
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @NoArgsConstructor

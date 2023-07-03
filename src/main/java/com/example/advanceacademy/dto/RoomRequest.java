@@ -2,13 +2,13 @@ package com.example.advanceacademy.dto;
 
 import com.example.advanceacademy.entity.RoomType;
 import com.example.advanceacademy.entity.ViewType;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.NumberFormat;
 
-import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @AllArgsConstructor

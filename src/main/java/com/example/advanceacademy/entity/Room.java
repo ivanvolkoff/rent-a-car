@@ -1,12 +1,11 @@
 package com.example.advanceacademy.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
-import java.util.Set;
 
 @Setter
 @Getter

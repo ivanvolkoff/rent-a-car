@@ -4,7 +4,7 @@ import com.example.advanceacademy.dto.HotelRequest;
 import com.example.advanceacademy.dto.HotelResponse;
 import com.example.advanceacademy.dto.SearchHotelResponse;
 import com.example.advanceacademy.dto.UpdateHotelRequest;
-import com.example.advanceacademy.service.HotelService;
+import com.example.advanceacademy.service.impl.HotelServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +17,17 @@ import java.util.List;
 @RequestMapping("/api/v1/hotel")
 public class HotelController {
 
+    private final HotelServiceImpl hotelService;
+
     @Autowired
-    HotelService hotelService;
+    public HotelController(HotelServiceImpl hotelService) {
+        this.hotelService = hotelService;
+    }
 
     @PostMapping
     public ResponseEntity<String> addHotel(@RequestBody HotelRequest request) {
         HotelResponse hotelResponse = hotelService.saveHotel(request);
-        String response = String.format("Hotel with %s was created with id %s",
+        String response = String.format("Hotel with name %s was created with id %s",
                 hotelResponse.getHotelName(), hotelResponse.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

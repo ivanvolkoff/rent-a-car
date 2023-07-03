@@ -1,8 +1,9 @@
 package com.example.advanceacademy.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
